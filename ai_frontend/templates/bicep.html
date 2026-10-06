@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bicep Curl</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bicep.css') }}" />
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" />
+    </div>
+
+    <ul class="menu">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Move ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ url_for('bicep') }}">Bicep Curl</a></li> 
+          <li><a>Tricep Extension</a></li>
+          <li><a href="{{ url_for('pushup') }}">Push Up</a></li>
+          <li><a>Chest Press</a></li>
+          <li><a>Shoulder Press</a></li>
+          <li><a>Incline Bench Press</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">About</a></li>
+    </ul>
+
+    <div class="auth">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="signup">Sign Up</a>
+    </div>
+  </nav>
+
+  <section class="exercise-section">
+    <div class="text-left">
+      <h1>Bicep Curl</h1>
+      <img src="{{ url_for('static', filename='images/bicep.png') }}" class="exercise-img" alt="Bicep Curl" />
+      
+      <video id="webcam-video" autoplay style="display: none;"></video> 
+       <canvas id="canvas-frame" style="display: none;"></canvas>
+       </div>
+
+      <div class="actions">
+        <div class="action-card">
+          <h3>Demonstration Video</h3>
+          <button class="btn">▶</button>
+        </div>
+        
+        <div class="action-card">
+          <h3>Check Your Form</h3>
+          <button class="btn camera-btn" id="start-camera-btn">
+            <img src="{{ url_for('static', filename='images/Camera.png') }}" alt="Start Camera" class="camera-icon">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div id="prediction-result" class="prediction-box"></div> 
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script> 
+</body>
+</html>

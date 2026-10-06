@@ -1,0 +1,194 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(20, 20, 20);
+  font-family: 'Poppins', Arial, sans-serif;
+  color: white;
+}
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+}
+
+/* LOGO */
+.logo img {
+  width: 60px;
+  height: auto;
+}
+
+/* MENU */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 250px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.menu li a:hover {
+  opacity: 0.7;
+}
+
+/* AUTH BUTTONS */
+.auth {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.login {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.signup {
+  background: #ff6a2e;
+  padding: 10px 22px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.signup:hover {
+  background: #ff7f4a;
+}
+
+/* DROPDOWN CONTAINER */
+.dropdown {
+  position: relative;
+}
+
+/* DROPDOWN MENU — HIDDEN BY DEFAULT */
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  list-style: none;
+
+  display: none !important;
+
+  min-width: 420px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  max-height: 220px;
+  overflow-y: auto;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* SHOW DROPDOWN (JS TOGGLE CLASS) */
+.dropdown.active .dropdown-menu {
+  display: grid !important;
+}
+
+/* DROPDOWN ITEM */
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* HERO SECTION */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url("gym-bg.jpg") no-repeat center center/cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  padding-top: 120px;
+}
+
+/* DARK OVERLAY */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* HERO TEXT */
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+
+  transform: translateY(-1cm); /* NAIKKAN TULISAN 2 CM */
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.welcome {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.join-btn {
+  padding: 12px 28px;
+  background: #ff6a33;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.join-btn:hover {
+  background: #e8561f;
+}

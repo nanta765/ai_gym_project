@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Push Up</title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bicep.css') }}" /> 
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+
+<style>
+/* CSS agar video dan canvas menimpali gambar statis */
+.text-left {
+    position: relative;
+    /* Lebar minimal agar elemen lain tidak bergeser */
+    min-width: 420px; 
+    min-height: 315px;
+}
+.exercise-img {
+    /* Pastikan gambar statis memiliki ukuran yang sama dengan inisialisasi kamera (420x315) */
+    width: 420px; 
+    height: 315px; 
+    display: block;
+}
+#video-wrapper {
+    /* PENTING: Wrapper ini akan menimpali gambar statis */
+    position: absolute;
+    top: 50px; /* Sesuaikan posisi vertikal agar tepat di atas gambar */
+    left: 0;
+    width: 420px;
+    height: 315px;
+    display: none; /* <--- PENTING: Disembunyikan oleh CSS */
+    /* Flip horizontal agar menjadi cerminan (sesuai logika MediaPipe) */
+    transform: scaleX(-1); 
+}
+#webcam-video, #canvas-frame {
+    width: 100%;
+    height: 100%;
+}
+</style>
+</head>
+
+<body>
+ <nav class="navbar">
+ <div class="logo">
+ <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" />
+</div>
+
+<ul class="menu">
+<li><a href="{{ url_for('index') }}">Home</a></li>
+
+<li class="dropdown">
+ <a href="#" class="dropdown-toggle">Move ▼</a>
+ <ul class="dropdown-menu">
+  <li><a href="{{ url_for('bicep') }}">Bicep Curl</a></li> 
+  <li><a>Tricep Extension</a></li>
+  <li><a href="{{ url_for('pushup') }}">Push Up</a></li>
+  <li><a>Chest Press</a></li>
+  <li><a>Shoulder Press</a></li>
+  <li><a>Incline Bench Press</a></li>
+ </ul>
+</li>
+
+<li><a href="#">About</a></li>
+</ul>
+
+<div class="auth">
+ <a href="#" class="login">Login</a>
+ <a href="#" class="signup">Sign Up</a>
+</div>
+</nav>
+
+<section class="exercise-section"> 
+ <div class="text-left">
+  <h1>Push Up</h1> 
+    <img src="{{ url_for('static', filename='images/Pushup.png') }}" class="exercise-img" alt="Push Up" /> 
+  
+    <div id="video-wrapper">
+      <video id="webcam-video" autoplay style="display: none;"></video> 
+      <canvas id="canvas-frame"></canvas>
+    </div>
+ </div>
+
+ <div class="actions">
+  <div class="action-card">
+   <h3>Demonstration Video</h3>
+   <button class="btn">▶</button>
+  </div>
+
+  <div class="action-card">
+   <h3>Check Your Form</h3>
+      <button class="btn camera-btn" id="start-camera-btn">
+    <img src="{{ url_for('static', filename='images/Camera.png') }}" alt="Start Camera" class="camera-icon">
+   </button>
+  </div>
+ </div>
+</section>
+
+<div id="prediction-result" class="prediction-box"></div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

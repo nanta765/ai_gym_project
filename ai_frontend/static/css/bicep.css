@@ -1,0 +1,188 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 60px;
+}
+
+/* ================= ACTIVE STATE ================= */
+.dropdown-menu li a[href="bicep.html"] {
+    color: #ff6a2e;
+    font-weight: 600;
+}
+
+
+/* ================= PAGE LAYOUT ================= */
+.exercise-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 180px 120px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ================= LEFT TITLE ================= */
+.text-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    /* PENTING: Position relative untuk menampung elemen absolut di dalamnya */
+    position: relative; 
+}
+
+.text-left h1 {
+    font-size: 64px;
+    font-weight: 600;
+    white-space: nowrap;
+    transform: translateY(-2cm);
+}
+
+/* ================= CENTER IMAGE ================= */
+.exercise-img {
+    width: 420px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* ================= RIGHT ACTIONS ================= */
+.actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+}
+
+/* ================= ACTION CARD ================= */
+.action-card {
+    background: #2c2c2c;
+    width: 224px;
+    height: 260px;
+    border-radius: 18px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+
+    /* 👉 POSISI FINAL */
+    margin-left: 5cm; /* geser ke kanan */
+    margin-top: -2cm; /* naik 2 cm */
+}
+
+.action-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    border: none;
+    background: #4a4a4a;
+    cursor: pointer;
+    transition: 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    line-height: 1;
+}
+
+/* ▶ DEMONSTRATION VIDEO ICON */
+.actions .action-card:first-child .btn {
+    font-size: 56px;
+    color: #ffffff;
+}
+
+.actions .action-card:first-child .btn:hover {
+    color: #ffffff;
+}
+
+.btn:hover {
+    background: #ff6a2e;
+    transform: scale(1.08);
+}
+
+/* ================= VIDEO FEED & CANVAS (MEDIAPIPE OUTPUT) ================= */
+
+#webcam-video, #canvas-frame {
+    /* Posisi Absolut: Agar menumpuk di atas exercise-img */
+    position: absolute; 
+    top: 50%; /* Tengah vertikal */
+    left: 50%; /* Tengah horizontal */
+    transform: translate(-50%, -50%); 
+
+    /* Dimensi: Harus sama persis dengan .exercise-img untuk penumpukan yang rapi */
+    width: 420px; 
+    height: 315px; /* Disesuaikan dengan rasio yang realistis (4:3) */
+
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    border: 3px solid #ff6a2e; 
+
+    z-index: 10; 
+}
+
+.prediction-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(44, 44, 44, 0.95);
+    padding: 15px 20px;
+    border-radius: 10px;
+    z-index: 100;
+    min-width: 250px;
+    text-align: center;
+}
+
+/* ================= CAMERA ICON ================= */
+.btn img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 960px) {
+    .exercise-section {
+        flex-direction: column;
+        padding: 140px 40px 0;
+        gap: 60px;
+}
+
+.text-left {
+    justify-content: center;
+}
+
+.text-left h1 {
+    font-size: 48px;
+    white-space: normal;
+    text-align: center;
+    transform: translateY(-20px);
+}
+
+.actions {
+    gap: 24px;
+}
+
+/* RESET POSISI DI MOBILE */
+.action-card {
+    margin-left: 0;
+    margin-top: 0;
+}
+}

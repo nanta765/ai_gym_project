@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Correct Your Form</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" /> 
+    </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" /> </div>
+
+      <ul class="menu">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Move ▼</a>
+
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('bicep') }}">Bicep Curl</a></li> 
+            <li><a href="{{ url_for('tricep') }}">Tricep Extension</a></li>
+            <li><a href="{{ url_for('pushup') }}">Push Up</a></li>
+            <li><a href="{{ url_for('chestpress') }}">Chest Press</a></li>
+            <li><a href="{{ url_for('shoulderpress') }}">Shoulder Press</a></li>
+            <li><a href="{{ url_for('incline') }}">Incline Bench Press</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">About</a></li>
+      </ul>
+
+      <div class="auth">
+        <a href="#" class="login">Login</a>
+        <a href="#" class="signup">Sign Up</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          Correct Your <br />
+          Form
+        </h1>
+        <p class="subtitle">We are here to prevent you from injuries</p>
+        <p class="welcome">Welcome.</p>
+        <button class="join-btn">Join us</button>
+      </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
